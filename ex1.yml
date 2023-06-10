@@ -1,0 +1,35 @@
+# ex1.yml
+# 
+# runs with:
+# ansible-playbook ex1.yml -i inv1.yml
+#
+# needs:
+#
+# ssh-keygen
+# ssh-copy-id <user>@pg1
+# ssh-copy-id <user<@pg2
+#
+# in pgX:/etc/sudoers
+# <user>	ALL=(ALL)       NOPASSWD:ALL
+#
+---
+- hosts: all
+  become: true
+
+  tasks:
+  - name: debug
+    debug: 
+      msg: "ex1 begin"
+
+  - name: update /etc/httpd/conf/httpd.conf 
+    lineinfile:
+      path: /etc/httpd/conf/httpd.conf 
+      regexp: '^Listen ' 
+      line: 'Listen 8080'
+
+  - name: debug
+    debug: 
+      msg: "ex1 fin"
+
+
+

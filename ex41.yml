@@ -1,0 +1,9 @@
+---
+ - name: ex41 step 1
+   debug:
+     msg: "ex41 step 1"
+
+ - name: ex41 step 2
+   debug:
+     msg: "ex41 step 2"
+

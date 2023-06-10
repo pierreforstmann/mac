@@ -1,0 +1,22 @@
+---
+- hosts: localhost
+  become: true
+
+  tasks:
+  - name: debug
+    debug: 
+      msg: "ex2 begin"
+  - name: apt loop
+    apt:
+      name: " {{item}} "
+      state: present
+    loop:
+     - p7zip-full     
+     - p7zip-rar
+     - p7zip
+  - name: debug
+    debug: 
+      msg: "ex2 fin"
+
+
+

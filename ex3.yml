@@ -1,0 +1,12 @@
+---
+- hosts: localhost
+
+  tasks:
+  - name: debug
+    debug: 
+      msg: "Only executed on Ubuntu"
+  - name: Ubuntu only 
+    shell: uname -a
+    when: ansible_distribution == 'Ubuntu'
+
+
