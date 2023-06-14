@@ -7,6 +7,6 @@
     register: ip_address_result
   - name: display IP
     debug: 
-      msg: "IP address of enp3s0 is {{ip_address_result.stdout}}"
+      msg: "IP address of enp1s0 is {{ip_address_result.stdout}}"
 
 
