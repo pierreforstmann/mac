@@ -1,0 +1,23 @@
+---
+- hosts: all
+  name: test
+  become: true
+  become_user: root
+  become_method: sudo
+
+  tasks:
+    - name: shell
+      ansible.builtin.shell: whoami
+      register: me
+
+    - name: debug
+      debug:
+        msg:
+          - "{{me}}"
+
+    - name: lif
+      lineinfile:
+        path: /tmp/cron.allow
+        state: present
+        line: "postgres"
+        
